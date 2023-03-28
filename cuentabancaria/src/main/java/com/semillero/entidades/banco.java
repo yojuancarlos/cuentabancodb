@@ -44,6 +44,9 @@ public abstract class banco {
 	}
 	public abstract void retirar(float valor)throws SaldoInsuficienteException, MaximoRetirosException;
 	
+    public void transferir(float valor,int numeroCuenta){
+
+    }
 	
 	
 }
