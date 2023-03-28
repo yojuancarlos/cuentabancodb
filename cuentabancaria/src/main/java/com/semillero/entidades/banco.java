@@ -4,10 +4,19 @@ public abstract class banco {
 	protected int numeroCuenta;
 	protected int saldo;
 	protected String propietario;
+	protected String tipo;
 	
 	
-	
-	public int getNumeroCuenta() {
+	public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public banco(String tipo) {
+        this.tipo = tipo;
+    }
+    public int getNumeroCuenta() {
         return numeroCuenta;
     }
     public void setNumeroCuenta(int numeroCuenta) {
