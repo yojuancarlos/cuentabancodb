@@ -1,21 +1,19 @@
 package com.semillero.entidades;
 
-public abstract class banco {
+public  class banco {
 	protected int numeroCuenta;
-	protected int saldo;
-	protected String propietario;
+	protected  int saldo;
+	protected  String propietario;
 	protected String tipo;
 	
 	
-	public String getTipo() {
-        return tipo;
-    }
-    public void setTipo(String tipo) {
+	public banco(int numeroCuenta, int saldo, String propietario, String tipo) {
+        this.numeroCuenta = numeroCuenta;
+        this.saldo = saldo;
+        this.propietario = propietario;
         this.tipo = tipo;
     }
-    public banco(String tipo) {
-        this.tipo = tipo;
-    }
+    
     public int getNumeroCuenta() {
         return numeroCuenta;
     }
@@ -34,15 +32,17 @@ public abstract class banco {
     public void setPropietario(String propietario) {
         this.propietario = propietario;
     }
-    public banco(int numeroCuenta, int saldo, String propietario) {
-        this.numeroCuenta = numeroCuenta;
-        this.saldo = saldo;
-        this.propietario = propietario;
+    public String getTipo() {
+        return tipo;
     }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
     public  void depositar (float valor) {
 		saldo += valor;
 	}
-	public abstract void retirar(float valor)throws SaldoInsuficienteException, MaximoRetirosException;
+	
 	
     public void transferir(float valor,int numeroCuenta){
 

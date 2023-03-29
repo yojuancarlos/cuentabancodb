@@ -5,7 +5,7 @@ public class cuentaCorriente extends banco{
     public cuentaCorriente(int numeroCuenta, int saldo, String propietario) {
         super(numeroCuenta, saldo, propietario);
         numRetiros=0;
-        //TODO Auto-generated constructor stub
+        
 
     }
 

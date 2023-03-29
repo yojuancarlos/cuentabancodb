@@ -5,5 +5,5 @@ public interface repositoriocrud {
     public void eliminar(Object objeto);
     public void actualizar(Object objeto);
     public void buscar(Object objeto);
-    public List<Object> listar();
+    public List<?> listar();
 }
