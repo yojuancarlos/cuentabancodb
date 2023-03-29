@@ -27,12 +27,12 @@ public class cuentaDb implements repositoriocrud{
         try (Connection conexion = DriverManager.getConnection(this.cadenaConexion)) {
             String sql="CREATE TABLE IF NOT EXISTS cuentas (\n"
             + " id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-            + " propietario TEXT NOT NULL,\n"
+            + " numerocuenta TEXT NOT NULL UNIQUE,\n"
             + " saldo integer NOT NULL,\n"
+            + " propietario TEXT NOT NULL,\n"
             + " tipo text NOT NULL ,\n"
             + " sobrecargo integer NULL,\n"
             + " abono integer  NULL,\n"
-            + " numerocuenta TEXT NOT NULL UNIQUE,\n"
             + " numeroretiros integer  NULL\n"
             + ");";
             Statement sentencia = conexion.createStatement();
@@ -49,9 +49,9 @@ public void guardar(Object objeto) {
 
     try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
         banco banco = (banco) objeto;
-        String sentenciaSql = "INSERT INTO cuentas (propietario, saldo, tipo, numerocuenta) " +
-                " VALUES('" + banco.getPropietario() + "', '" 
-                + "', " + banco.getSaldo() + ", '" + banco.getNumeroCuenta()
+        String sentenciaSql = "INSERT INTO cuentas (numerocuenta,saldo,propietario,tipo) " +
+                " VALUES('" + banco.getNumeroCuenta()  + "', '" 
+                + "', " + banco.getSaldo() + ", '" + banco.getPropietario()
                  + "');";
         Statement sentencia = conexion.createStatement();
         sentencia.execute(sentenciaSql);
@@ -96,12 +96,12 @@ public Object buscar(String numCuenta) {
         ResultSet resultadoConsulta = sentencia.executeQuery();
         if (resultadoConsulta != null && resultadoConsulta.next()) {
             banco banco = null;
-            String propietario = resultadoConsulta.getString("propietario");
-            int saldo = resultadoConsulta.getInt("saldo");
-            String tipo = resultadoConsulta.getString("tipo");
             String numerocuenta = resultadoConsulta.getString("numerocuenta");
+                int saldo = resultadoConsulta.getInt("saldo");
+                String propietario = resultadoConsulta.getString("propietario");
+                String tipo = resultadoConsulta.getString("tipo");
 
-            banco = new banco(propietario,saldo,tipo, numerocuenta );
+            banco = new banco(numerocuenta,saldo,propietario,tipo);
             return banco;
         }
 
@@ -124,12 +124,13 @@ public List<?> listar() {
         if (resultadoConsulta != null) {
             while (resultadoConsulta.next()) {
                 banco banco = null;
-                String propietario = resultadoConsulta.getString("propietario");
-                int saldo = resultadoConsulta.getInt("saldo");
-                String tipo = resultadoConsulta.getString("tipo");
                 String numerocuenta = resultadoConsulta.getString("numerocuenta");
+                int saldo = resultadoConsulta.getInt("saldo");
+                String propietario = resultadoConsulta.getString("propietario");
+                String tipo = resultadoConsulta.getString("tipo");
+                
 
-                banco = new banco(propietario,saldo,tipo, numerocuenta );
+                banco = new banco(numerocuenta,saldo,propietario,tipo);
                 bancos.add(banco);
             }
             return bancos;

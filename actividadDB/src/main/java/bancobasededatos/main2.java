@@ -11,7 +11,7 @@ public class main2 {
     public static void main(String[] args) {
 
         repositoriocrud repositoriocuenta = new cuentaDb();
-        banco cuenta = new banco("123", 1000, "anderson", "ahorro");
+        banco cuenta = new banco("31031311111",100000,"pedro", "ahorro");
         // propietario,saldo,tipo, numerocuenta
         // guardar
         repositoriocuenta.guardar(cuenta);
@@ -22,7 +22,10 @@ public class main2 {
         
 
          for (banco cuentaenbasededatos : bancobasedb) {
-         System.out.println(cuentaenbasededatos.getPropietario());
+        System.out.println("esta es el numero cuenta  "+cuentaenbasededatos.getNumeroCuenta());
+         System.out.println("este es el saldo  "+cuentaenbasededatos.getSaldo());
+         System.out.println("este es el propietario  "+cuentaenbasededatos.getPropietario());
+         System.out.println("este es el tipo  "+cuentaenbasededatos.getTipo());
          }
     }
 
