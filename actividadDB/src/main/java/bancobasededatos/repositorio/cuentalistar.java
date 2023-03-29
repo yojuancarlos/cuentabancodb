@@ -1,4 +1,4 @@
-package main.java.com.semillero.repositorio;
+package bancobasededatos.repositorio;
 
 import java.util.List;
 

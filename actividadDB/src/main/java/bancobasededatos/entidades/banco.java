@@ -1,4 +1,4 @@
-package com.semillero.entidades;
+package bancobasededatos.entidades;
 
 public  class banco {
 	protected String numeroCuenta;

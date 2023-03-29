@@ -1,4 +1,4 @@
-package main.java.com.semillero.repositorio;
+package bancobasededatos.repositorio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,9 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-import com.semillero.entidades.banco;
+import bancobasededatos.entidades.banco;
 
 public class cuentaDb implements repositoriocrud{
     
@@ -35,7 +33,7 @@ public class cuentaDb implements repositoriocrud{
             + " sobrecargo integer NULL,\n"
             + " abono integer  NULL,\n"
             + " numerocuenta TEXT NOT NULL UNIQUE,\n"
-            + " numeroretiros integer  NULL,\n"
+            + " numeroretiros integer  NULL\n"
             + ");";
             Statement sentencia = conexion.createStatement();
             sentencia.execute(sql);
@@ -51,14 +49,14 @@ public void guardar(Object objeto) {
 
     try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
         banco banco = (banco) objeto;
-        String sentenciaSql = "INSERT INTO bancos (propietario, saldo, tipo, numerocuenta) " +
+        String sentenciaSql = "INSERT INTO cuentas (propietario, saldo, tipo, numerocuenta) " +
                 " VALUES('" + banco.getPropietario() + "', '" 
                 + "', " + banco.getSaldo() + ", '" + banco.getNumeroCuenta()
                  + "');";
         Statement sentencia = conexion.createStatement();
         sentencia.execute(sentenciaSql);
     } catch (SQLException e) {
-        System.err.println("Error de conexión: " + e);
+        System.err.println("Error de conexión222: " + e);
     } catch (Exception e) {
         System.err.println("Error " + e.getMessage());
     }
@@ -69,7 +67,7 @@ public Object eliminar(String numCuenta) {
     // TODO Auto-generated method stub
     
     try (Connection conexion = DriverManager.getConnection(this.cadenaConexion)) {
-        String sentenciaSql = "DELETE FROM bancos WHERE numeroCuenta = '" + numCuenta + "';";
+        String sentenciaSql = "DELETE FROM cuentas WHERE numeroCuenta = '" + numCuenta + "';";
         Statement sentencia = conexion.createStatement();
         sentencia.execute(sentenciaSql);
     } catch (SQLException e) {
@@ -92,7 +90,7 @@ public void actualizar(Object objeto) {
 public Object buscar(String numCuenta) {
     
     try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
-        String sentenciaSQL = "SELECT * FROM bancos WHERE identificacion = ?";
+        String sentenciaSQL = "SELECT * FROM cuentas WHERE identificacion = ?";
         PreparedStatement sentencia = conexion.prepareStatement(sentenciaSQL);
         sentencia.setString(1,numCuenta);
         ResultSet resultadoConsulta = sentencia.executeQuery();
@@ -119,7 +117,7 @@ public List<?> listar() {
     List<banco> bancos  = new ArrayList<banco>();
 
     try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
-        String sentenciaSql = "SELECT * FROM bancos";
+        String sentenciaSql = "SELECT * FROM cuentas";
         PreparedStatement sentencia = conexion.prepareStatement(sentenciaSql);
         ResultSet resultadoConsulta = sentencia.executeQuery();
 

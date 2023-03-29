@@ -1,4 +1,7 @@
-package com.semillero.entidades;
+package bancobasededatos.entidades;
+
+import bancobasededatos.exepciones.MaximoRetirosException;
+import bancobasededatos.exepciones.SaldoInsuficienteException;
 
 public class cuentaCorriente extends banco{
     int numRetiros;

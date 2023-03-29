@@ -1,4 +1,4 @@
-package com.semillero.entidades;
+package bancobasededatos.exepciones;
 
 public class SaldoInsuficienteException extends Exception{
     public SaldoInsuficienteException(String message) {

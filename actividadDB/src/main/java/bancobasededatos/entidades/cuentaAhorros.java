@@ -1,4 +1,6 @@
-package com.semillero.entidades;
+package bancobasededatos.entidades;
+
+import bancobasededatos.exepciones.SaldoInsuficienteException;
 
 public class cuentaAhorros extends banco{
     
