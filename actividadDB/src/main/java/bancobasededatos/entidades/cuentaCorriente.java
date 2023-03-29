@@ -7,7 +7,7 @@ public class cuentaCorriente extends banco{
     int numRetiros;
     public cuentaCorriente(String numeroCuenta, int saldo, String propietario,String tipo) {
         super(numeroCuenta, saldo, propietario, tipo);
-        numRetiros=0;
+        numRetiros=1;
         
 
     }

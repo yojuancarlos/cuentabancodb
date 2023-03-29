@@ -50,9 +50,11 @@ public void guardar(Object objeto) {
     try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
         banco banco = (banco) objeto;
         String sentenciaSql = "INSERT INTO cuentas (numerocuenta,saldo,propietario,tipo) " +
-                " VALUES('" + banco.getNumeroCuenta()  + "', '" 
-                + "', " + banco.getSaldo() + ", '" + banco.getPropietario()
-                 + "');";
+                " VALUES('" + banco.getNumeroCuenta()  + "', "  + banco.getSaldo()
+                 + ", '" + banco.getPropietario()+ "', '" + banco.getTipo() + "');";
+
+                
+                 
         Statement sentencia = conexion.createStatement();
         sentencia.execute(sentenciaSql);
     } catch (SQLException e) {

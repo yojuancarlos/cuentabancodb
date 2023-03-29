@@ -11,7 +11,7 @@ public class main2 {
     public static void main(String[] args) {
 
         repositoriocrud repositoriocuenta = new cuentaDb();
-        banco cuenta = new banco("31031311111",100000,"pedro", "ahorro");
+        banco cuenta = new banco("111111111111",100000,"pedro", "ahorro");
         // propietario,saldo,tipo, numerocuenta
         // guardar
         repositoriocuenta.guardar(cuenta);

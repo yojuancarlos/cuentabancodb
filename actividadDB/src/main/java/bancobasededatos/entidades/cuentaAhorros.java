@@ -12,7 +12,7 @@ public class cuentaAhorros extends banco{
     public cuentaAhorros(String numeroCuenta, int saldo, String propietario, String tipo) {
         super(numeroCuenta, saldo, propietario, tipo);
         //TODO Auto-generated constructor stub
-        numRetiros = 0;
+        numRetiros = 1;
     }
 
 	public void retirar(float valor) throws SaldoInsuficienteException {
