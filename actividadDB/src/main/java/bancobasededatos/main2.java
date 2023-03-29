@@ -17,7 +17,10 @@ public class main2 {
         repositoriocuenta.guardar(cuenta);
         // listar
         List<banco> bancobasedb = (ArrayList<banco>) repositoriocuenta.listar();
-        
+        // ------ Buscar Persona ------
+         banco bancoencontrado = (banco) repositoriocuenta.buscar("111111111111");
+
+         System.out.println("La persona encontrada es: " + bancoencontrado.getNumeroCuenta());
 
         
 

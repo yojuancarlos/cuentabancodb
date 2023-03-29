@@ -92,7 +92,7 @@ public void actualizar(Object objeto) {
 public Object buscar(String numCuenta) {
     
     try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
-        String sentenciaSQL = "SELECT * FROM cuentas WHERE identificacion = ?";
+        String sentenciaSQL = "SELECT * FROM cuentas WHERE numerocuenta = ?";
         PreparedStatement sentencia = conexion.prepareStatement(sentenciaSQL);
         sentencia.setString(1,numCuenta);
         ResultSet resultadoConsulta = sentencia.executeQuery();
