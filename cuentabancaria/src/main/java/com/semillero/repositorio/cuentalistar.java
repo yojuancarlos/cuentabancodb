@@ -1,5 +1,7 @@
 package main.java.com.semillero.repositorio;
 
+import java.util.List;
+
 public class cuentalistar implements repositoriocrud {
     @Override
     public void guardar(Object objeto) {
@@ -8,7 +10,7 @@ public class cuentalistar implements repositoriocrud {
     }
 
     @Override
-    public void eliminar(Object objeto) {
+    public Object eliminar(String numCuenta) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
     }
@@ -20,7 +22,7 @@ public class cuentalistar implements repositoriocrud {
     }
 
     @Override
-    public void buscar(Object objeto) {
+    public Object buscar(String numCuenta){
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscar'");
     }

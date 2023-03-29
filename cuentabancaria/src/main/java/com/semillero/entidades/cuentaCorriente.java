@@ -2,14 +2,13 @@ package com.semillero.entidades;
 
 public class cuentaCorriente extends banco{
     int numRetiros;
-    public cuentaCorriente(int numeroCuenta, int saldo, String propietario) {
-        super(numeroCuenta, saldo, propietario);
+    public cuentaCorriente(String numeroCuenta, int saldo, String propietario,String tipo) {
+        super(numeroCuenta, saldo, propietario, tipo);
         numRetiros=0;
         
 
     }
 
-    @Override
 	public void retirar(float valor) throws SaldoInsuficienteException, MaximoRetirosException {
 		if (valor > saldo) {
 	        throw new SaldoInsuficienteException(propietario);

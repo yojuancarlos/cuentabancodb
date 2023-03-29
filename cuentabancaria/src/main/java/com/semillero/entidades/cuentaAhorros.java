@@ -7,15 +7,12 @@ public class cuentaAhorros extends banco{
 	protected double bono;
 
 
-    public cuentaAhorros(int numeroCuenta, int saldo, String propietario) {
-        super(numeroCuenta, saldo, propietario);
+    public cuentaAhorros(String numeroCuenta, int saldo, String propietario, String tipo) {
+        super(numeroCuenta, saldo, propietario, tipo);
         //TODO Auto-generated constructor stub
         numRetiros = 0;
     }
 
-	
-
-	@Override
 	public void retirar(float valor) throws SaldoInsuficienteException {
 		if (valor > saldo) {
             throw new SaldoInsuficienteException(propietario);

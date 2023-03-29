@@ -1,23 +1,22 @@
 package com.semillero.entidades;
 
 public  class banco {
-	protected int numeroCuenta;
+	protected String numeroCuenta;
 	protected  int saldo;
 	protected  String propietario;
 	protected String tipo;
-	
-	
-	public banco(int numeroCuenta, int saldo, String propietario, String tipo) {
+
+	public banco(String numeroCuenta, int saldo, String propietario, String tipo) {
         this.numeroCuenta = numeroCuenta;
         this.saldo = saldo;
         this.propietario = propietario;
         this.tipo = tipo;
     }
     
-    public int getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
-    public void setNumeroCuenta(int numeroCuenta) {
+    public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
     public int getSaldo() {
