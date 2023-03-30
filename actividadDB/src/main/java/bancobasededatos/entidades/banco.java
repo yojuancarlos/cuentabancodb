@@ -56,13 +56,38 @@ public   class banco {
     }
 
 
-    public  void depositar (float valor) {
-		saldo += valor;
-	}
-	
-	
-    public void transferir(float valor,int numeroCuenta){
+    public void depositar(double monto) {
+        double montoConAdicional = monto;
+        // Solo se aplica el adicional para los primeros dos depósitos.
+        if (this.saldo == 0 && monto > 0) {
+            montoConAdicional += (monto * 0.005);
+        } else if (this.saldo > 0 && monto > 0) {
+            montoConAdicional += (monto * 0.005);
+            this.saldo += montoConAdicional;
+        }
+        this.saldo += monto;
+    }
 
+    public void retirar(double monto) {
+        if (monto > 0 && monto <= this.saldo) {
+            this.saldo -= monto;
+        }
+    }
+	
+	
+    public void transferir(double monto, banco cuentaDestino) {
+        if (this instanceof cuentaAhorros && cuentaDestino instanceof cuentaCorriente) {
+            monto += (monto * 0.015);
+        } else if (this instanceof cuentaCorriente && cuentaDestino instanceof cuentaAhorros) {
+            monto += (monto * 0.015);
+        } else if (this instanceof cuentaAhorros && cuentaDestino instanceof cuentaCorriente) {
+            monto += (monto * 0.02);
+        }
+
+        if (monto <= this.saldo) {
+            this.saldo -= monto;
+            cuentaDestino.depositar(monto);
+        }
     }
 	
 	

@@ -22,7 +22,10 @@ public class guibanco {
             System.out.println("2. Listar cuenta");
             System.out.println("3. Buscar cuenta");
             System.out.println("4. Eliminar cuenta");
-            System.out.println("6. Salir");
+            System.out.println("5. Realizar depósito");
+            System.out.println("6. Realizar retiro");
+            System.out.println("7. Realizar transferencia");
+            System.out.println("8. Salir");
             Scanner scanner = new Scanner(System.in);
             int opcion = scanner.nextInt();
             seleccion(opcion);
@@ -44,7 +47,16 @@ public class guibanco {
             case 4:
                 eliminarPersona();
                 break;
+            case 5:
+            eliminarPersona();
+            break;
             case 6:
+            eliminarPersona();
+            break;
+            case 7:
+            eliminarPersona();
+            break;
+            case 8:
                 salir();
                 break;
             default:
