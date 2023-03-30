@@ -95,7 +95,7 @@ public void actualizar(String numeroCuenta, Object cuentaActualizada) {
                      + "saldo = ?, "
                      + "propietario = ?, "
                      + "tipo = ? "
-                     + "WHERE id = ?;";
+                     + "WHERE numeroCuenta = ?;";
                      
         PreparedStatement sentencia = conexion.prepareStatement(sentenciaSql);
         sentencia.setString(1, cuenta.getNumeroCuenta());
