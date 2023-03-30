@@ -14,7 +14,49 @@ public class cuentaAhorros extends banco{
 	private int cantidadRetiros;
     
     
-    public cuentaAhorros(String numeroCuenta, int saldo, String propietario, String tipo) {
+    public int getNumeroRetiros() {
+		return numeroRetiros;
+	}
+	public void setNumeroRetiros(int numeroRetiros) {
+		this.numeroRetiros = numeroRetiros;
+	}
+	public double getPorcentajeDescuentoRetiros() {
+		return porcentajeDescuentoRetiros;
+	}
+	public void setPorcentajeDescuentoRetiros(double porcentajeDescuentoRetiros) {
+		this.porcentajeDescuentoRetiros = porcentajeDescuentoRetiros;
+	}
+	public int getNumeroTransferencias() {
+		return numeroTransferencias;
+	}
+	public void setNumeroTransferencias(int numeroTransferencias) {
+		this.numeroTransferencias = numeroTransferencias;
+	}
+	public double getPorcentajeCobroTransferencias() {
+		return porcentajeCobroTransferencias;
+	}
+	public void setPorcentajeCobroTransferencias(double porcentajeCobroTransferencias) {
+		this.porcentajeCobroTransferencias = porcentajeCobroTransferencias;
+	}
+	public double getPorcentajeBonificacionDepositos() {
+		return porcentajeBonificacionDepositos;
+	}
+	public void setPorcentajeBonificacionDepositos(double porcentajeBonificacionDepositos) {
+		this.porcentajeBonificacionDepositos = porcentajeBonificacionDepositos;
+	}
+	public int getDepositosRealizados() {
+		return depositosRealizados;
+	}
+	public void setDepositosRealizados(int depositosRealizados) {
+		this.depositosRealizados = depositosRealizados;
+	}
+	public int getCantidadRetiros() {
+		return cantidadRetiros;
+	}
+	public void setCantidadRetiros(int cantidadRetiros) {
+		this.cantidadRetiros = cantidadRetiros;
+	}
+	public cuentaAhorros(String numeroCuenta, int saldo, String propietario, String tipo) {
 		super(numeroCuenta, saldo, propietario, tipo);
 		this.numeroRetiros = 0;
         this.porcentajeDescuentoRetiros = 0.01;

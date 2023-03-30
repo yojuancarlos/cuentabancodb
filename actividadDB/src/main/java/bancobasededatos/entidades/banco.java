@@ -1,5 +1,8 @@
 package bancobasededatos.entidades;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public   class banco {
 	protected String numeroCuenta;
 	protected  int saldo;
@@ -55,6 +58,7 @@ public   class banco {
         this.tipo = tipo;
     }
 
+    
 
     public void depositar(double monto) {
         double montoConAdicional = monto;

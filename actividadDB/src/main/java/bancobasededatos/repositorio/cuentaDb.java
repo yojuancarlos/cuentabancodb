@@ -6,10 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
 import bancobasededatos.entidades.banco;
+import bancobasededatos.entidades.cuentaAhorros;
+import bancobasededatos.entidades.cuentaCorriente;
 
 public class cuentaDb implements repositoriocrud{
     
@@ -83,9 +86,35 @@ public Object eliminar(String numCuenta) {
 }
 
 @Override
-public void actualizar(Object objeto) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'actualizar'");
+public void actualizar(String numeroCuenta, Object cuentaActualizada) {
+    try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
+        banco cuenta = (banco) cuentaActualizada;
+        String sentenciaSql = "UPDATE cuentas SET "
+                     
+                     + "numeroCuenta = ?, "
+                     + "saldo = ?, "
+                     + "propietario = ?, "
+                     + "tipo = ? "
+                     + "WHERE id = ?;";
+                     
+        PreparedStatement sentencia = conexion.prepareStatement(sentenciaSql);
+        sentencia.setString(1, cuenta.getNumeroCuenta());
+        sentencia.setInt(2, cuenta.getSaldo());
+        sentencia.setString(3, cuenta.getPropietario());
+        sentencia.setString(4, cuenta.getTipo().toString());
+        
+        if (cuenta instanceof cuentaAhorros) {
+            sentencia.setInt(6, ((cuentaAhorros) cuenta).getDepositosRealizados());
+            sentencia.setNull(7, Types.INTEGER);
+        } else if (cuenta instanceof cuentaCorriente) {
+            sentencia.setNull(6, Types.INTEGER);
+            sentencia.setInt(7, ((cuentaCorriente) cuenta).getNumTransferenciasAhorro());
+        }
+       sentencia.executeUpdate();
+       conexion.close();
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar la cuenta"  + e.getMessage());
+    }
 }
 
 @Override

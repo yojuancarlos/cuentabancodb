@@ -8,7 +8,25 @@ public class cuentaCorriente extends banco{
 	
     protected int numTransferenciasAhorro;
     protected int numTransferenciasCorriente;
-    public cuentaCorriente(String numeroCuenta, int saldo, String propietario,String tipo) {
+    public int getNumRetiros() {
+		return numRetiros;
+	}
+	public void setNumRetiros(int numRetiros) {
+		this.numRetiros = numRetiros;
+	}
+	public int getNumTransferenciasAhorro() {
+		return numTransferenciasAhorro;
+	}
+	public void setNumTransferenciasAhorro(int numTransferenciasAhorro) {
+		this.numTransferenciasAhorro = numTransferenciasAhorro;
+	}
+	public int getNumTransferenciasCorriente() {
+		return numTransferenciasCorriente;
+	}
+	public void setNumTransferenciasCorriente(int numTransferenciasCorriente) {
+		this.numTransferenciasCorriente = numTransferenciasCorriente;
+	}
+	public cuentaCorriente(String numeroCuenta, int saldo, String propietario,String tipo) {
         super(numeroCuenta, saldo, propietario, tipo);
         
 		this.numRetiros = 0;

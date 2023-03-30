@@ -9,7 +9,7 @@ import bancobasededatos.repositorio.cuentaDb;
 import bancobasededatos.repositorio.repositoriocrud;
 
 public class main2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         repositoriocrud repositoriocuenta = new cuentaDb();
         //banco cuenta = new banco("222222222222",100000,"pedro", "ahorro");

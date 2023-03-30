@@ -1,5 +1,7 @@
 package bancobasededatos.servicios;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import bancobasededatos.entidades.banco;
@@ -19,6 +21,10 @@ public class serviciosbanco {
 
     public List<banco> listarcuentas() {
         return (List<banco>) repositoriocuenta.listar();
+    }
+
+    public void actualizarCuenta(String numeroCuenta, banco cuenta) {
+        repositoriocuenta.actualizar(numeroCuenta, cuenta);
     }
 
     public banco buscarcuenta(String numerodecuenta) throws Exception {
